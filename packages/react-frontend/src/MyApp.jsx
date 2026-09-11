@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Table from "./Table";
 import Form from "./Form";
 
@@ -31,7 +31,7 @@ function MyApp() {
   function removeOneCharacter(id) {
     fetch(`http://localhost:8000/users/${id}`, { method: "DELETE" })
       .then((res) => {
-        if (!res.ok) {
+        if (res.status !== 204) {
           throw new Error("Delete request failed");
         }
         setCharacters((prev) => prev.filter((character) => character.id !== id));

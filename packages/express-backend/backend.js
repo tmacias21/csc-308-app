@@ -19,6 +19,16 @@ app.use(express.json());
 
 const generateId = () => Math.random().toString(36).slice(2, 10);
 
+const generateUniqueId = () => {
+  let id = generateId();
+
+  while (users.users_list.some((user) => user.id === id)) {
+    id = generateId();
+  }
+
+  return id;
+};
+
 const findUserByName = (name) =>
   users.users_list.filter((user) => user.name === name);
 
@@ -57,7 +67,7 @@ app.get("/users/:id", (req, res) => {
 });
 
 const addUser = (user) => {
-  const newUser = { id: generateId(), ...user };
+  const newUser = { ...user, id: generateUniqueId() };
   users.users_list.push(newUser);
   return newUser;
 };

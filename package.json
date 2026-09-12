@@ -2,6 +2,11 @@
   "name": "csc-308-app",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "dev": "npm --prefix packages/react-frontend run dev",
+    "build": "npm --prefix packages/react-frontend run build",
+    "preview": "npm --prefix packages/react-frontend run preview"
+  },
   "workspaces": [
     "packages/*"
   ],

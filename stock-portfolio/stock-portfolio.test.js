@@ -63,3 +63,9 @@ test("rejects selling more shares than owned", () => {
     "Not possible to sell this number of shares.",
   );
 });
+
+
+//Following the TDD model was challenging. I'm used to writing code first and then test
+// ing it. I had to think about the tests first and then write the code to make the tests pass.
+// It took me more time than I thought it would, but this approach is beneficial when
+// designing a feature that can deal with weird inputs. 
